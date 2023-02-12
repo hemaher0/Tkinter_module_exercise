@@ -8,8 +8,13 @@ class Application(tk.Frame):                                                    
         self.createWidgets()
 
     def createWidgets(self):
-        self.quitButton = tk.Button(self, text='Quit', command=self.quit)       #Creates a button labeled "Quit"
-        self.quitButton.grid()                                                  #Places the button on the application
+        top = self.winfo_toplevel()
+        top.rowconfigure(0,weight=1)
+        top.columnconfigure(0,weight=1)
+        self.rowconfigure(0,weight=1)
+        self.columnconfigure(0,weight=1)
+        self.quit = tk.Button(self, text='Quit', command=self.quit)
+        self.quit.grid(row=0,column=0, sticky=tk.NSEW)
 
 
 app = Application()                                                             #The main program stats here by instantiating the Application class.
